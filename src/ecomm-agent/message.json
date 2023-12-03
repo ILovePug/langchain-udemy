@@ -1,0 +1,45 @@
+{
+  "messages": [
+    [
+      {
+        "lc": 1,
+        "type": "constructor",
+        "id": ["langchain_core", "messages", "HumanMessage"],
+        "kwargs": {
+          "content": "how many users are in the database?",
+          "additional_kwargs": {}
+        }
+      },
+      {
+        "lc": 1,
+        "type": "constructor",
+        "id": ["langchain_core", "messages", "AIMessage"],
+        "kwargs": {
+          "content": "",
+          "additional_kwargs": {
+            "tool_calls": [
+              {
+                "id": "call_EkKPoKEmQuzAZlBNgb82YcIY",
+                "type": "function",
+                "function": {
+                  "name": "runSqliteQuery",
+                  "arguments": "{\n  \"input\": \"SELECT COUNT(*) FROM Users;\"\n}"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "lc": 1,
+        "type": "constructor",
+        "id": ["langchain_core", "messages", "ToolMessage"],
+        "kwargs": {
+          "content": "2000",
+          "tool_call_id": "call_EkKPoKEmQuzAZlBNgb82YcIY",
+          "additional_kwargs": {}
+        }
+      }
+    ]
+  ]
+}
